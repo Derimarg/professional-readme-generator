@@ -120,7 +120,20 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Description about your project:'
+        message: 'Description about your project: (Required',
+        validate: descriptionInput => {
+            if (descriptionInput) {
+                return true;
+            } else {
+                console.log('Please enter description about your project!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'demo',
+        message: 'Provide directory of image demo (Ex: ./images/demo.gif):'
     },
     {
         type: 'checkbox',

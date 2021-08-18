@@ -9,6 +9,7 @@
 <br />
 <p align="center">
 
+<img src="./assets/images/coding.gif" alt="Logo" width="150" height="150">
 
 <h2 align="center">Professional Readme Generator</h2>
 
