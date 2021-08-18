@@ -59,14 +59,14 @@ function renderDescriptionSection(description) {
     
   ## Description of Project
     
-  ${description}`
+  ${description}`;
   }
-  return ''
+  return '';
 }
 
 function renderShortDescription(description) {
   if (description.length > 40) {
-    return `${description.substring(0, 40)}...`
+    return `${description.substring(0, 40)}...`;
   }
   return '';
 }
@@ -74,6 +74,16 @@ function renderShortDescription(description) {
 function renderDescriptionLink(description) {
   if (description) {
     return `<li><a href="#description">Description of Project</a></li>`;
+  }
+  return '';
+}
+
+function demoProject(demo) {
+  if(demo) {
+    return `
+  Example:
+  
+  ![Demo](${demo})`;
   }
   return '';
 }
@@ -192,6 +202,7 @@ function generateMarkdown(data) {
 
   return `
 ![Repo Size][repo-size]
+![Language][GitHub-language]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -201,6 +212,7 @@ ${renderLinkedinDisplay(data.linkedin)}
 
 <br />
 <p align="center">
+
 ${renderLogo(data.logo)}
 
 <h2 align="center">${data.title}</h2>
@@ -239,6 +251,8 @@ ${renderLicenseLink(data.license)}
 </details>
 
 ${renderDescriptionSection(data.description)}
+
+${demoProject(data.demo)}
 
 ${renderTechnologies(data.technologies)}
 
@@ -314,11 +328,12 @@ ${renderLicenseSection(data.license, data.name)}
 
 ${renderGoTopLink(data.title)}
 [repo-size]: https://img.shields.io/github/repo-size/${data.github}/${data.repo}?style=for-the-badge
+[GitHub-language]: https://img.shields.io/github/languages/top/${data.github}/${data.repo}?color=yellow&style=for-the-badge
 [contributors-shield]: https://img.shields.io/github/contributors/${data.github}/${data.repo}.svg?style=for-the-badge
 [contributors-url]: https://github.com/${data.github}/${data.repo}/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/${data.github}/${data.repo}.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/${data.github}/${data.repo}.svg?color=9cf&style=for-the-badge
 [forks-url]: https://github.com/${data.github}/${data.repo}/network/members
-[stars-shield]: https://img.shields.io/github/stars/${data.github}/${data.repo}.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/${data.github}/${data.repo}.svg?color=blueviolet&style=for-the-badge
 [stars-url]: https://github.com/${data.github}/${data.repo}/stargazers
 [issues-shield]: https://img.shields.io/github/issues/${data.github}/${data.repo}.svg?style=for-the-badge
 [issues-url]: https://github.com/${data.github}/${data.repo}/issues
