@@ -120,7 +120,7 @@ const questions = [
     {
         type: 'input',
         name: 'description',
-        message: 'Description about your project: (Required',
+        message: 'Description about your project: (Required)',
         validate: descriptionInput => {
             if (descriptionInput) {
                 return true;

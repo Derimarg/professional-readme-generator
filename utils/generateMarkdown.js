@@ -11,9 +11,7 @@ function renderLogo(logo) {
 function renderGoTopLink(title) {
   const goTop = title.split(' ').join('-').toLowerCase();
   if (title) {
-    return `
-  [Back To Top](#${goTop})
-  `;
+    return `[Back To Top](#${goTop})`;
   }
   return '';
 }
@@ -21,9 +19,7 @@ function renderGoTopLink(title) {
 function renderTitleLink(title) {
   const str = title.split(' ').join('-').toLowerCase();
   if (title) {
-    return (
-      `- [Title](#${str})`
-    );
+    return `- [Title](#${str})`;
   }
   return '';
 }
@@ -40,13 +36,14 @@ function renderURLProject(deployed) {
 
 /* TECHNOLOGIES SECTION */
 function renderTechnologies(technologies) {
-  if (technologies !== 'NONE') {
+  const list = technologies.toString().split(',').join('\n- ');
+  if (technologies) {
     return `
-  ## Technologies
-    
-  ${technologies}`
+## Technologies
+
+- ${list}`;
   }
-  return ''
+  return '';
 }
 /* END TECHNOLOGIES SECTION */
 
@@ -55,11 +52,11 @@ function renderTechnologies(technologies) {
 function renderDescriptionSection(description) {
   if (description) {
     return `
-  ---
-    
-  ## Description of Project
-    
-  ${description}`;
+---
+  
+## Description of Project
+  
+${description}`;
   }
   return '';
 }
@@ -79,7 +76,7 @@ function renderDescriptionLink(description) {
 }
 
 function demoProject(demo) {
-  if(demo) {
+  if (demo) {
     return `
   Example:
   
@@ -98,17 +95,31 @@ function renderUsage(usage) {
   ${usage}
     `;
   }
-  return ''
+  return '';
+}
+
+function renderUsageLink(usage) {
+  if (usage) {
+    return `<li><a href="#usage">Usage</a></li>`;
+  }
+  return '';
 }
 /* END USAGE SECTION */
 
 /* CONTRIBUTOR SECTION */
 function renderContributor(contributors) {
-  if(contributors) {
+  if (contributors) {
     return `
   ## Contributors
   
   ${contributors}`;
+  }
+  return '';
+}
+
+function renderContributorLink(contributors) {
+  if (contributors) {
+    return `<li><a href="#contributors">Contributors</a></li>`;
   }
   return '';
 }
@@ -137,7 +148,7 @@ function renderLinkedinDisplay(linkedin) {
 }
 
 function linkedinProfile(linkedin, name) {
-  if(linkedin) {
+  if (linkedin) {
     return `- Linkedin - [${name}](${linkedin})`;
   }
   return '';
@@ -149,7 +160,7 @@ function linkedinProfile(linkedin, name) {
 function renderLicenseBadge2(license) {
   if (license !== 'NONE') {
     // return `![GitHub license](https://img.shields.io/badge/license-${license}-yellowgreen.svg?style=for-the-badge)`
-    return `![${license} License][license-shield]`
+    return `![${license} License][license-shield]`;
   }
   return '';
 }
@@ -157,7 +168,7 @@ function renderLicenseBadge2(license) {
 function renderLicenseBadge(license) {
   if (license !== 'NONE') {
     // return `![GitHub license](https://img.shields.io/badge/license-${license}-yellowgreen.svg?style=for-the-badge)`
-    return `[license-shield]: https://img.shields.io/static/v1?label=license&message=${license}&color=yellowgreen.svg&style=for-the-badge`
+    return `[license-shield]: https://img.shields.io/static/v1?label=license&message=${license}&color=yellowgreen.svg&style=for-the-badge`;
   }
   return '';
 }
@@ -165,7 +176,7 @@ function renderLicenseBadge(license) {
 // Returns the license link, If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license !== 'NONE') {
-    return `<li><a href="#license">License</a></li>`
+    return `<li><a href="#license">License</a></li>`;
   }
   return '';
 }
@@ -241,10 +252,10 @@ ${renderDescriptionLink(data.description)}
 <li><a href="#how-to-download">Download</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#usage">Usage</a></li>
+${renderUsageLink(data.usage)}
 <li><a href="#test">Test</a></li>
 <li><a href="#author-info">Author-info</a></li>
-<li><a href="#contributors">Contributors</a></li>
+${renderContributorLink(data.contributors)}
 ${renderLicenseLink(data.license)}
 <li><a href="#questions">Questions</a></li>
 </ul>
@@ -296,7 +307,7 @@ ${renderGoTopLink(data.title)}
 
 ${renderUsage(data.usage)}
 
-## Tests
+## Test
 
 To run tests, run these commands:
 
@@ -319,7 +330,7 @@ ${renderGoTopLink(data.title)}
 
 ## Questions
 
-For questions contact me at ${data.email}
+For additional help or questions about collaboration, contact me at ${data.email}
 
 ${renderGoTopLink(data.title)}
 ---
@@ -327,6 +338,7 @@ ${renderGoTopLink(data.title)}
 ${renderLicenseSection(data.license, data.name)}
 
 ${renderGoTopLink(data.title)}
+
 [repo-size]: https://img.shields.io/github/repo-size/${data.github}/${data.repo}?style=for-the-badge
 [GitHub-language]: https://img.shields.io/github/languages/top/${data.github}/${data.repo}?color=yellow&style=for-the-badge
 [contributors-shield]: https://img.shields.io/github/contributors/${data.github}/${data.repo}.svg?style=for-the-badge
@@ -340,8 +352,6 @@ ${renderGoTopLink(data.title)}
 ${renderLicenseBadge(data.license)}
 ${renderLinkedinShield(data.linkedin)}
 ${renderLinkedinURL(data.linkedin)}
-[product-screenshot]: images/screenshot.png
-
   `;
 }
 
