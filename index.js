@@ -4,7 +4,7 @@ const generateMarkdown = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
 const path = require('path');
 
-// TODO: Create an array of questions for user input
+// Create an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -48,7 +48,15 @@ const questions = [
     {
         type: 'input',
         name: 'email',
-        message: 'What is your email?'
+        message: 'What is your email? (Required)',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please enter your email!');
+                return false;
+            }
+        }
     },
     {
         type: 'confirm',
@@ -61,8 +69,8 @@ const questions = [
         name: 'confirmLinkedin',
         message: 'Would you like to add your Linkedin Profile?',
         default: true,
-        when: ({ confirmSocialMedia}) => {
-            if (confirmSocialMedia ) {
+        when: ({ confirmSocialMedia }) => {
+            if (confirmSocialMedia) {
                 return true;
             } else {
                 return false;
@@ -74,7 +82,32 @@ const questions = [
         name: 'linkedin',
         message: 'Provide Linkedin Profile URL:',
         when: ({ confirmLinkedin }) => {
-            if (confirmLinkedin ) {
+            if (confirmLinkedin) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
+    {
+        type: 'confirm',
+        name: 'confirmTwitter',
+        message: 'Would you like to add your Twitter Profile?',
+        default: true,
+        when: ({ confirmSocialMedia }) => {
+            if (confirmSocialMedia) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'twitter',
+        message: 'Provide Twitter Profile URL:',
+        when: ({ confirmTwitter }) => {
+            if (confirmTwitter) {
                 return true;
             } else {
                 return false;
@@ -138,13 +171,31 @@ const questions = [
     {
         type: 'checkbox',
         name: 'technologies',
-        message: 'Select which technologies did you use [example: JavaScript, HTML, CSS, etc.]',
+        message: 'Select which technologies did you use! (Press <space> to select, <a> to toggle all, <i> to invert selection)',
         choices: ['HTML', 'CSS', 'JavaScript', 'JQuery', 'Bootstrap', 'Bulma', 'Python', 'JAVA', 'C#', 'C', 'C++', 'Go', 'Swift', 'PHP']
+    },
+    {
+        type: 'confirm',
+        name: 'confirmOthers',
+        message: 'Would you like to add more Technologies used?',
+        default: false
+    },
+    {
+        type: 'input',
+        name: 'others',
+        message: 'Please enter others technologies used!',
+        when: ({ confirmOthers }) => {
+            if (confirmOthers) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     },
     {
         type: 'list',
         name: 'license',
-        message: 'What license would you like to use?',
+        message: 'What license would you like to use? (Use arrow keys)',
         choices: ['NONE', 'MIT', 'AFL-3.0', 'APACHE-2.0', 'ARTISTIC-2.0', 'BSL-1.0', 'BSD-2-CLAUSE',
             'BSD-3-CLAUSE', 'BSD-3-CLAUSE-CLEAR', 'CC', 'CC0-1.0', 'CC-BY-4.0', 'CC-BY-SA-4.0', 'WTFPL',
             'ECL-2.0', 'EPL-1.0', 'EPL-2.0', 'EUPL-1.1', 'AGPL-3.0', 'GPL', 'GPL-2.0', 'GPL-3.0', 'LGPL',
@@ -175,20 +226,20 @@ const questions = [
     }
 ];
 
-// TODO: Create a function to write README file
+// Function to write README file
 function writeToFile(fileName, data) {
     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
-// TODO: Create a function to initialize app
+// Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
         .then((answers) => {
             // Use user feedback for... whatever!!
-            console.log("Generating.... Please wait....");
+            console.log('README.md has been created!');
             writeToFile("./demo/README.md", generateMarkdown({ ...answers }));
         }).then(() => {
-            console.log('README.md has been created!');
+            console.log('Follow this directory: ./demo/README.md')
         }).catch((err) => {
             console.log(err);
         });

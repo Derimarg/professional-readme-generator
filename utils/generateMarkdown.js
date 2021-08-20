@@ -8,8 +8,18 @@ function renderLogo(logo) {
 /* END LOGO SECTION */
 
 /* TITLE SECTION */
+function displayTitle(title) {
+  const idSplit = title.split(' ').join('-').toLowerCase();
+
+  if (title) {
+    return `<h2 align="center" id="${idSplit}">${title}</h2>`;
+  }
+  return '';
+}
+
 function renderGoTopLink(title) {
   const goTop = title.split(' ').join('-').toLowerCase();
+
   if (title) {
     return `[Back To Top](#${goTop})`;
   }
@@ -18,6 +28,7 @@ function renderGoTopLink(title) {
 
 function renderTitleLink(title) {
   const str = title.split(' ').join('-').toLowerCase();
+
   if (title) {
     return `- [Title](#${str})`;
   }
@@ -37,11 +48,25 @@ function renderURLProject(deployed) {
 /* TECHNOLOGIES SECTION */
 function renderTechnologies(technologies) {
   const list = technologies.toString().split(',').join('\n- ');
+
   if (technologies) {
     return `
 ## Technologies
 
 - ${list}`;
+  }
+  return '';
+}
+
+function othersTechnologies(others) {
+  if (others = '') {
+    const convert = others
+  } else {
+    const convert = others.split(',').join('\n-');
+  }
+
+  if (others) {
+    return `- ${convert}`;
   }
   return '';
 }
@@ -62,8 +87,8 @@ ${description}`;
 }
 
 function renderShortDescription(description) {
-  if (description.length > 40) {
-    return `${description.substring(0, 40)}...`;
+  if (description.length > 60) {
+    return `${description.substring(0, 60)}...`;
   }
   return '';
 }
@@ -110,9 +135,9 @@ function renderUsageLink(usage) {
 function renderContributor(contributors) {
   if (contributors) {
     return `
-  ## Contributors
+## Contributors
   
-  ${contributors}`;
+${contributors}`;
   }
   return '';
 }
@@ -153,6 +178,34 @@ function linkedinProfile(linkedin, name) {
   }
   return '';
 }
+
+function twitterBadgeShield(twitter) {
+  if (twitter) {
+    return `[twitter-shield]: https://img.shields.io/badge/-Twitter-red.svg?&logo=twitter&style=for-the-badge&color=9cf`;
+  }
+  return '';
+}
+
+function renderTwitterURL(twitter) {
+  if (twitter) {
+    return `[twitter-url]: ${twitter}`;
+  }
+  return '';
+}
+
+function renderTwitterDisplay(twitter) {
+  if (twitter) {
+    return `[![twitter][twitter-shield]][twitter-url]`;
+  }
+  return '';
+}
+
+function twitterProfile(twitter, name) {
+  if (twitter) {
+    return `- Twitter - [${name}](${twitter})`;
+  }
+  return '';
+}
 /* END SOCIAL MEDIA SECTION */
 
 /* LICENSE SECTION */
@@ -189,18 +242,13 @@ function renderLicenseSection(license, name) {
   if (license !== 'NONE') {
     return (
       `
-  ## License
+## License
 
-  ${license} License
+${license} License
 
-  Copyright © ${currentYear}, ${name}.
-        
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
+Copyright © ${currentYear}, ${name}.
+
+Distributed under the ${license} License. See \`LICENSE\` for more information.
   `
     )
   }
@@ -218,20 +266,21 @@ function generateMarkdown(data) {
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-${renderLicenseBadge2(data.license)}
+${renderTwitterDisplay(data.twitter)}
 ${renderLinkedinDisplay(data.linkedin)}
+${renderLicenseBadge2(data.license)}
 
 <br />
 <p align="center">
 
 ${renderLogo(data.logo)}
 
-<h2 align="center">${data.title}</h2>
+${displayTitle(data.title)}
 
 <p align="center">
 ${renderShortDescription(data.description)}
 <br />
-<a href="https://github.com/${data.github}/${data.repo}"><strong>Explore the docs »</strong></a>
+<a href="#how-to-download"><strong>Explore the docs »</strong></a>
 <br />
 <br />
 <a href="./demo/README.md">View Demo</a>
@@ -252,12 +301,13 @@ ${renderDescriptionLink(data.description)}
 <li><a href="#how-to-download">Download</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#prerequisites">Prerequisites</a></li>
-${renderUsageLink(data.usage)}
 <li><a href="#test">Test</a></li>
-<li><a href="#author-info">Author-info</a></li>
+${renderUsageLink(data.usage)}
+<li><a href="#roadmap">Roadmap</a></li>
+<li><a href="#contributing">Contributing</a></li>
 ${renderContributorLink(data.contributors)}
-${renderLicenseLink(data.license)}
 <li><a href="#questions">Questions</a></li>
+${renderLicenseLink(data.license)}
 </ul>
 </details>
 
@@ -266,8 +316,10 @@ ${renderDescriptionSection(data.description)}
 ${demoProject(data.demo)}
 
 ${renderTechnologies(data.technologies)}
+${othersTechnologies(data.others)}
 
 ${renderGoTopLink(data.title)}
+
 ---
 
 ## How to Download
@@ -302,42 +354,56 @@ Before of using this application, is require to install dependencies, run the fo
   ${data.dependencies}
   \`\`\`
 
-${renderGoTopLink(data.title)}
----
-
-${renderUsage(data.usage)}
-
 ## Test
 
 To run tests, run these commands:
 
-\`\`\`
-${data.test}
-\`\`\`
+  \`\`\`
+  ${data.test}
+  \`\`\`
 
 ${renderGoTopLink(data.title)}
----
-  
-## Author Info
 
-- GitHub - [${data.github}](https://github.com/${data.github}/)
-${linkedinProfile(data.linkedin, data.name)}
+---
+
+${renderUsage(data.usage)}
+
+<!-- ROADMAP -->
+## Roadmap
+
+See the [open issues](https://github.com/${data.github}/${data.repo}/issues) for a list of proposed features (and known issues).
+
+${renderGoTopLink(data.title)}
+
+---
+
+<!-- CONTRIBUTORS -->
+## Contributing
+
+Contributions are part of this open source project. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (\`git checkout -b feature/name-of-feature\`)
+3. Commit your Changes (\`git commit -m "Add some feature"\`)
+4. Push to the Branch (\`git push origin feature/name-of-feature\`)
+5. Open a Pull Request
 
 ${renderContributor(data.contributors)}
 
-${renderGoTopLink(data.title)}
----
-
 ## Questions
 
-For additional help or questions about collaboration, contact me at ${data.email}
+For additional help or questions about collaboration, contact me at: \`${data.email}\`
+
+- GitHub - [${data.github}](https://github.com/${data.github}/)
+${twitterProfile(data.twitter, data.name)}
+${linkedinProfile(data.linkedin, data.name)}
+- Project Link: \`https://github.com/${data.github}/${data.repo}\`
 
 ${renderGoTopLink(data.title)}
+
 ---
 
 ${renderLicenseSection(data.license, data.name)}
-
-${renderGoTopLink(data.title)}
 
 [repo-size]: https://img.shields.io/github/repo-size/${data.github}/${data.repo}?style=for-the-badge
 [GitHub-language]: https://img.shields.io/github/languages/top/${data.github}/${data.repo}?color=yellow&style=for-the-badge
@@ -350,6 +416,8 @@ ${renderGoTopLink(data.title)}
 [issues-shield]: https://img.shields.io/github/issues/${data.github}/${data.repo}.svg?style=for-the-badge
 [issues-url]: https://github.com/${data.github}/${data.repo}/issues
 ${renderLicenseBadge(data.license)}
+${twitterBadgeShield(data.twitter)}
+${renderTwitterURL(data.twitter)}
 ${renderLinkedinShield(data.linkedin)}
 ${renderLinkedinURL(data.linkedin)}
   `;
