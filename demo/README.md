@@ -1,4 +1,3 @@
-
 ![Repo Size][repo-size]
 ![Language][GitHub-language]
 [![Contributors][contributors-shield]][contributors-url]
@@ -179,4 +178,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [twitter-url]: https://twitter.com
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/derimar-gray-676275132
-  

@@ -4,7 +4,7 @@
   "description": "[How to create a Professional README](./readme-guide.md)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter list"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,9 @@
     "inquirer": "^8.1.2"
   },
   "devDependencies": {
-    "mocha": "^9.0.3"
+    "chai": "^4.3.4",
+    "mocha": "^9.0.3",
+    "nyc": "^15.1.0",
+    "three": "^0.131.3"
   }
 }
