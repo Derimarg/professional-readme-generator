@@ -14,10 +14,8 @@
 
 
 
-<h2 align="center" id="professional-readme-generator">Professional Readme Generator</h2>
-
+<h3 align="center" id="professional-readme-generator">Professional Readme Generator</h3>
 <p align="center">
-
 <br />
 <a href="#how-to-download"><strong>Explore the docs »</strong></a>
 <br />

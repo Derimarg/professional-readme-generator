@@ -12,7 +12,7 @@ function displayTitle(title) {
   const idSplit = title.split(' ').join('-').toLowerCase();
 
   if (title) {
-    return `<h2 align="center" id="${idSplit}">${title}</h2>`;
+    return `<h3 align="center" id="${idSplit}">${title}</h3>`;
   }
   return '';
 }
