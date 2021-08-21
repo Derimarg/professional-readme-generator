@@ -52,18 +52,17 @@ function renderTechnologies(technologies) {
   if (technologies) {
     return `
 ## Technologies
-
 - ${list}`;
   }
   return '';
 }
 
 function othersTechnologies(others) {
-  if (others = '') {
-    const convert = others
-  } else {
+  // if (others = '') {
+  //   const convert = others
+  // } else {
     const convert = others.split(',').join('\n-');
-  }
+  // }
 
   if (others) {
     return `- ${convert}`;
@@ -72,14 +71,13 @@ function othersTechnologies(others) {
 }
 /* END TECHNOLOGIES SECTION */
 
-
 /* DESCRIPTION SECTION */
 function renderDescriptionSection(description) {
   if (description) {
     return `
 ---
   
-## Description of Project
+## Description
   
 ${description}`;
   }
@@ -95,7 +93,7 @@ function renderShortDescription(description) {
 
 function renderDescriptionLink(description) {
   if (description) {
-    return `<li><a href="#description">Description of Project</a></li>`;
+    return `<li><a href="#description">Description</a></li>`;
   }
   return '';
 }
@@ -103,9 +101,18 @@ function renderDescriptionLink(description) {
 function demoProject(demo) {
   if (demo) {
     return `
-  Example:
+  ### Example:
   
   ![Demo](${demo})`;
+  }
+  return '';
+}
+
+function demoLink(demo) {
+  if (demo) {
+    return `
+<a href="#example">View Demo</a>
+·`;
   }
   return '';
 }
@@ -283,8 +290,7 @@ ${renderShortDescription(data.description)}
 <a href="#how-to-download"><strong>Explore the docs »</strong></a>
 <br />
 <br />
-<a href="./demo/README.md">View Demo</a>
-·
+${demoLink(data.demo)}
 <a href="https://github.com/${data.github}/${data.repo}/issues">Report Bug</a>
 ·
 <a href="https://github.com/${data.github}/${data.repo}/issues">Request Feature</a>
@@ -392,12 +398,12 @@ ${renderContributor(data.contributors)}
 
 ## Questions
 
-For additional help or questions about collaboration, contact me at: \`${data.email}\`
+For additional help or questions about collaboration, contact me at: ${data.email}
 
 - GitHub - [${data.github}](https://github.com/${data.github}/)
 ${twitterProfile(data.twitter, data.name)}
 ${linkedinProfile(data.linkedin, data.name)}
-- Project Link: \`https://github.com/${data.github}/${data.repo}\`
+- Project Repository Link: https://github.com/${data.github}/${data.repo}
 
 ${renderGoTopLink(data.title)}
 

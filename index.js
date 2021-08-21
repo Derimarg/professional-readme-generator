@@ -179,7 +179,7 @@ const questions = [
         type: 'confirm',
         name: 'confirmOthers',
         message: 'Would you like to add more Technologies used?',
-        default: false
+        default: true
     },
     {
         type: 'input',
@@ -212,13 +212,13 @@ const questions = [
     {
         type: "input",
         name: "test",
-        message: "What command should be run to run tests?",
+        message: "What command should be run to do a test?",
         default: "npm test"
     },
     {
         type: "input",
         name: "usage",
-        message: "What does the usage of this repo?",
+        message: "What is the usage of this repo?",
     },
     {
         type: 'input',
@@ -237,10 +237,8 @@ function init() {
     inquirer.prompt(questions)
         .then((answers) => {
             // Use user feedback for... whatever!!
-            console.log('README.md has been created!');
+            console.log('README.md has been created!, Follow this directory: ./demo/README.md');
             writeToFile("./demo/README.md", generateMarkdown({ ...answers }));
-        }).then(() => {
-            console.log('Follow this directory: ./demo/README.md')
         }).catch((err) => {
             console.log(err);
         });
