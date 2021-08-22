@@ -170,28 +170,9 @@ const questions = [
         message: 'Provide directory of image demo (Ex: ./images/demo.gif):'
     },
     {
-        type: 'checkbox',
-        name: 'technologies',
-        message: 'Select which technologies did you use! (Press <space> to select, <a> to toggle all, <i> to invert selection)',
-        choices: ['HTML', 'CSS', 'JavaScript', 'JQuery', 'Bootstrap', 'Bulma', 'Python', 'JAVA', 'C#', 'C', 'C++', 'Go', 'Swift', 'PHP']
-    },
-    {
-        type: 'confirm',
-        name: 'confirmOthers',
-        message: 'Would you like to add more Technologies used?',
-        default: true
-    },
-    {
         type: 'input',
-        name: 'others',
-        message: 'Please enter others technologies used!',
-        when: ({ confirmOthers }) => {
-            if (confirmOthers) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        name: 'technologies',
+        message: 'Provide technologies used!'
     },
     {
         type: 'list',

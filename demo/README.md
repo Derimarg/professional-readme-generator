@@ -6,29 +6,33 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-
+[![LinkedIn][linkedin-shield]][linkedin-url]
 ![MIT License][license-shield]
 
 <br />
 <p align="center">
 
+<img src="./../assets/images/webdesign08.gif" alt="Logo" width="80" height="80">
 
+<h3 align="center" id="weather-dashboard">Weather Dashboard</h3>
 
-<h3 align="center" id="professional-readme-generator">Professional Readme Generator</h3>
 <p align="center">
+A web application that allow to search for a city to get the...
 <br />
 <a href="#how-to-download"><strong>Explore the docs »</strong></a>
 <br />
 <br />
 <a href="#example">View Demo</a>
+.
+<a href="https://github.com/Derimarg/weather-dashboard/issues">Report Bug</a>
 ·
-<a href="https://github.com/Derimarg/professional-readme-generator/issues">Report Bug</a>
-·
-<a href="https://github.com/Derimarg/professional-readme-generator/issues">Request Feature</a>
+<a href="https://github.com/Derimarg/weather-dashboard/issues">Request Feature</a>
 </p>
 </p>
+<br />
+<br />
 
-
+> Link web page: https://derimarg.github.io/weather-dashboard/
 
 <details open="open">
 <summary>Table of Contents</summary>
@@ -53,21 +57,24 @@
   
 ## Description
   
-Cool free readme files generator
+A web application that allow to search for a city to get the current weather and 5 day forecast. Cities that users previously search will be displayed as history. This weather dashboard will give the user the ability of search for a city, show current and future conditions of weather for that city. For current weather conditions for that city, will be displayed a list with city name, the date, an icon representation of weather condition, the temperature, the humidity, the wind speed, and the UV index. The UV index will be presented with a color that indicates whether the conditions are favorable (<span style="color:green">*Green* </span>), moderate (<span style="color:yellow">*Yellow* </span>) or severe (<span style="color:red">*Red* </span>), temperature will show in Fahrenheit, Will display Future weather conditions for that city presenting the next 5 days showing a list with date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity, City search will be added to a history and displayed below, clicking on a city in the search history will display current and future conditions for that city, Will allow to clear the history.
 
-
-  ### Example:
+### Example:
   
-  ![Demo](./../assets/images/webdesign08.gif)
+  ![Demo](./../assets/images/demo-2.gif)
 
 
 ## Technologies
-- JavaScript
-- Node.js
-- NPM
-- Inquirer.js
 
-[Back To Top](#professional-readme-generator)
+- HTML
+- CSS
+- JavaScript
+- jQuery
+- Font Awesome
+- Bootstrap
+- OpenWeather One Call API
+
+[Back To Top](#weather-dashboard)
 
 ---
 
@@ -80,7 +87,7 @@ Cool free readme files generator
 - Use the follow command at your terminal, **git clone** (Create a working copy at your local repository):
 
   ```
-  git clone git@github.com:Derimarg/professional-readme-generator.git
+  git clone git@github.com:Derimarg/weather-dashboard.git
   ```
 
 - After cloned the repository, create your own repository, copy the files to your repository and type in your terminal the follow commands. 
@@ -111,22 +118,22 @@ To run tests, run these commands:
   npm test
   ```
 
-[Back To Top](#professional-readme-generator)
+[Back To Top](#weather-dashboard)
 
 ---
 
 
   ## Usage
 
-  This is a free and open source, feel fre to use it or do modifications
+  Open source application, feel free to contact me for question or request a feature.
     
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/Derimarg/professional-readme-generator/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/Derimarg/weather-dashboard/issues) for a list of proposed features (and known issues).
 
-[Back To Top](#professional-readme-generator)
+[Back To Top](#weather-dashboard)
 
 ---
 
@@ -149,10 +156,10 @@ For additional help or questions about collaboration, contact me at: charminvida
 
 - GitHub - [Derimarg](https://github.com/Derimarg/)
 
+- Linkedin - [Derimar Gray](https://www.linkedin.com/in/derimar-gray-676275132/)
+- Project Repository Link: https://github.com/Derimarg/weather-dashboard
 
-- Project Link: https://github.com/Derimarg/professional-readme-generator
-
-[Back To Top](#professional-readme-generator)
+[Back To Top](#weather-dashboard)
 
 ---
 
@@ -166,19 +173,19 @@ Copyright © 2021, Derimar Gray.
 Distributed under the MIT License. See `LICENSE` for more information.
   
 
-[repo-size]: https://img.shields.io/github/repo-size/Derimarg/professional-readme-generator?style=for-the-badge
-[GitHub-language]: https://img.shields.io/github/languages/top/Derimarg/professional-readme-generator?color=yellow&style=for-the-badge
-[contributors-shield]: https://img.shields.io/github/contributors/Derimarg/professional-readme-generator.svg?style=for-the-badge
-[contributors-url]: https://github.com/Derimarg/professional-readme-generator/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Derimarg/professional-readme-generator.svg?color=9cf&style=for-the-badge
-[forks-url]: https://github.com/Derimarg/professional-readme-generator/network/members
-[stars-shield]: https://img.shields.io/github/stars/Derimarg/professional-readme-generator.svg?color=blueviolet&style=for-the-badge
-[stars-url]: https://github.com/Derimarg/professional-readme-generator/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Derimarg/professional-readme-generator.svg?style=for-the-badge
-[issues-url]: https://github.com/Derimarg/professional-readme-generator/issues
+[repo-size]: https://img.shields.io/github/repo-size/Derimarg/weather-dashboard?style=for-the-badge
+[GitHub-language]: https://img.shields.io/github/languages/top/Derimarg/weather-dashboard?color=yellow&style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/Derimarg/weather-dashboard.svg?style=for-the-badge
+[contributors-url]: https://github.com/Derimarg/weather-dashboard/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Derimarg/weather-dashboard.svg?color=9cf&style=for-the-badge
+[forks-url]: https://github.com/Derimarg/weather-dashboard/network/members
+[stars-shield]: https://img.shields.io/github/stars/Derimarg/weather-dashboard.svg?color=blueviolet&style=for-the-badge
+[stars-url]: https://github.com/Derimarg/weather-dashboard/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Derimarg/weather-dashboard.svg?style=for-the-badge
+[issues-url]: https://github.com/Derimarg/weather-dashboard/issues
 [license-shield]: https://img.shields.io/static/v1?label=license&message=MIT&color=yellowgreen.svg&style=for-the-badge
 
 
-
-
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/derimar-gray-676275132/
   

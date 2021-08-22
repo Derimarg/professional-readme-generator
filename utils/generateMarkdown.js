@@ -47,25 +47,22 @@ function renderURLProject(deployed) {
 
 /* TECHNOLOGIES SECTION */
 function renderTechnologies(technologies) {
-  const list = technologies.toString().split(',').join('\n- ');
+  const a = technologies;
+  const b = a.split(',');
+  const c = b.join('\n-');
 
   if (technologies) {
     return `
 ## Technologies
-- ${list}`;
+
+- ${c}`;
   }
   return '';
 }
 
-function othersTechnologies(others) {
-  // if (others = '') {
-  //   const convert = others
-  // } else {
-    const convert = others.split(',').join('\n-');
-  // }
-
-  if (others) {
-    return `- ${convert}`;
+function technologiesLink(technologies) {
+  if (technologies) {
+    return `<li><a href="#technologies">Technologies</a></li>`;
   }
   return '';
 }
@@ -85,6 +82,10 @@ ${description}`;
 }
 
 function renderShortDescription(description) {
+  if (description.length < 60) {
+    return `${description}`;
+  }
+  
   if (description.length > 60) {
     return `${description.substring(0, 60)}...`;
   }
@@ -101,7 +102,7 @@ function renderDescriptionLink(description) {
 function demoProject(demo) {
   if (demo) {
     return `
-  ### Example:
+### Example:
   
   ![Demo](${demo})`;
   }
@@ -110,11 +111,12 @@ function demoProject(demo) {
 
 function demoLink(demo) {
   if (demo) {
-    return `
-<a href="#example">View Demo</a>
-·`;
+    return `<a href="#example">View Demo</a>
+.`;
+  } else {
+    return `<a href="#">View Demo</a>
+.`;
   }
-  return '';
 }
 /* END DESCRIPTION SECTION */
 
@@ -296,6 +298,8 @@ ${demoLink(data.demo)}
 <a href="https://github.com/${data.github}/${data.repo}/issues">Request Feature</a>
 </p>
 </p>
+<br />
+<br />
 
 ${renderURLProject(data.deployed)}
 
@@ -303,7 +307,7 @@ ${renderURLProject(data.deployed)}
 <summary>Table of Contents</summary>
 <ul>
 ${renderDescriptionLink(data.description)}
-<li><a href="#technologies">Technologies</a></li>
+${technologiesLink(data.technologies)}
 <li><a href="#how-to-download">Download</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#prerequisites">Prerequisites</a></li>
@@ -322,7 +326,6 @@ ${renderDescriptionSection(data.description)}
 ${demoProject(data.demo)}
 
 ${renderTechnologies(data.technologies)}
-${othersTechnologies(data.others)}
 
 ${renderGoTopLink(data.title)}
 
